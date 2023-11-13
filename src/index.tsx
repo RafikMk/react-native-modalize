@@ -125,6 +125,8 @@ const ModalizeBase = (
     HeaderComponent,
     FooterComponent,
     FloatingComponent,
+    // addcodehandle
+    addcodehandle,
 
     // Callbacks
     onOpen,
@@ -652,7 +654,16 @@ const ModalizeBase = (
   const renderHandle = (): JSX.Element | null => {
     const handleStyles: (TStyle | undefined)[] = [s.handle];
     const shapeStyles: (TStyle | undefined)[] = [s.handle__shape, handleStyle];
-
+    const additionalStyles = {
+      backgroundColor: '#03033D',
+      padding: 35,
+      borderRadius :20
+       // Add other styles as needed
+  };
+  const combinedStyles = {
+      ...handleStyles,
+      ...(addcodehandle ? additionalStyles : null),
+  };
     if (!withHandle) {
       return null;
     }
@@ -670,7 +681,7 @@ const ModalizeBase = (
         onGestureEvent={handleGestureEvent}
         onHandlerStateChange={handleComponent}
       >
-        <Animated.View style={handleStyles}>
+        <Animated.View style={additionalStyles}>
           <View style={shapeStyles} />
         </Animated.View>
       </PanGestureHandler>

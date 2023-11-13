@@ -255,6 +255,7 @@ export interface IProps<ListItem = any> {
    */
   withOverlay?: boolean;
 
+  addcodehandle?:boolean ;
   /**
    * A header component outside of the ScrollView, on top of the modal.
    */
